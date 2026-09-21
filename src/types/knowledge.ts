@@ -1,4 +1,7 @@
-export interface Question { question: string; answer: string }
+export interface Question {
+  question: string;
+  answer: string;
+}
 export interface KnowledgeNode {
   id: string;
   title: string;

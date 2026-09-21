@@ -1,4 +1,4 @@
-import type { KnowledgeNode } from '../types/knowledge';
+import type { KnowledgeNode } from "../types/knowledge";
 export function findPath(nodes: KnowledgeNode[], id: string): KnowledgeNode[] {
   for (const node of nodes) {
     if (node.id === id) return [node];
@@ -8,5 +8,5 @@ export function findPath(nodes: KnowledgeNode[], id: string): KnowledgeNode[] {
   return [];
 }
 export function flatten(nodes: KnowledgeNode[]): KnowledgeNode[] {
-  return nodes.flatMap(node => [node, ...flatten(node.children ?? [])]);
+  return nodes.flatMap((node) => [node, ...flatten(node.children ?? [])]);
 }
