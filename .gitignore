@@ -7,3 +7,4 @@ dist/
 *:Zone.Identifier
 playwright-report/
 test-results/
+*.tsbuildinfo
