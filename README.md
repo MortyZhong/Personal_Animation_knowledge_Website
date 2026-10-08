@@ -37,23 +37,20 @@ npm run preview   # 预览生产构建
 
 ## 添加知识
 
-编辑 `src/data/knowledge.ts`。所有节点使用 `src/types/knowledge.ts` 中的同一类型，支持任意深度的 `children`；每个节点必须有全局唯一且稳定的 `id`。
+在 `src/data/knowledge.ts` 编辑领域和主干节点；在 `src/data/detailBranches.ts` 为现有节点增加深入分支。两处都使用 `src/types/knowledge.ts` 中的同一类型，支持任意深度的 `children`；每个节点必须有全局唯一且稳定的 `id`，因为学习进度会保存这些 ID。
 
 ```ts
-{
-  id: 's3-versioning',
-  title: 'Versioning',
-  description: 'Keep multiple versions of an object in a bucket.',
-  keyPoints: ['Recover from an accidental overwrite.'],
-  questions: [{
-    question: 'Does versioning replace backups?',
-    answer: 'No. It is one layer of protection within a broader recovery plan.',
-  }],
-  example: 'An optional code example',
-}
+bucket: [
+  {
+    id: 's3-object-checksums',
+    title: 'Object Checksums',
+    description: 'Verify that uploaded and downloaded object data is intact.',
+    keyPoints: ['Choose a supported checksum algorithm for the workflow.'],
+  },
+]
 ```
 
-把以上节点添加到 S3 的 `children` 即可，搜索、知识树、面包屑和计数会自动更新。新增顶级领域时，也需要在 `src/config/themes.ts` 中按同一 `id` 添加主题。
+把以上分支加入 `detailBranches.ts` 对应的父节点键下，搜索、知识树、面包屑和计数会自动更新。新增顶级领域时，也需要在 `src/config/themes.ts` 中按同一 `id` 添加主题。
 
 ## 添加 / 替换动漫素材
 

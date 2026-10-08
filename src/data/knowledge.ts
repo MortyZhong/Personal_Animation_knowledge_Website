@@ -1,6 +1,7 @@
 import type { KnowledgeNode } from "../types/knowledge";
+import { detailBranches } from "./detailBranches";
 
-export const knowledge: KnowledgeNode[] = [
+const overviewKnowledge: KnowledgeNode[] = [
   {
     id: "aws",
     title: "AWS",
@@ -835,3 +836,13 @@ export const knowledge: KnowledgeNode[] = [
     ],
   },
 ];
+
+function expand(node: KnowledgeNode): KnowledgeNode {
+  const existing = node.children?.map(expand);
+  const added = detailBranches[node.id];
+  return existing || added
+    ? { ...node, children: [...(existing ?? []), ...(added ?? [])] }
+    : node;
+}
+
+export const knowledge: KnowledgeNode[] = overviewKnowledge.map(expand);
