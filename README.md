@@ -1,43 +1,45 @@
 # My Learning Map
 
-一个属于自己的计算机科学学习小宇宙。通过可展开的知识树、问答卡片和角色主题，把零散的知识连接起来。
+A personal universe for exploring computer science. Expand knowledge trees, review question cards, and switch character themes to connect ideas across subjects.
 
 Built with React, TypeScript, Vite, Tailwind CSS, Framer Motion, and Lucide. This is a completely static application: no backend, accounts, database, or server-side routing.
 
-## 开始使用
+## Getting started
 
-安装当前受支持的 Node.js LTS 及配套 npm，然后在项目目录运行：
+Install a currently supported Node.js LTS release and its accompanying npm version. Then run these commands in the project directory:
 
 ```bash
 npm install
 npm run dev
 ```
 
-访问终端显示的地址，默认是 `http://localhost:5173`。
+Open the address shown in the terminal, usually `http://localhost:5173`.
 
 ```bash
-npm run build     # TypeScript 检查及生产构建，输出 dist/
-npm run preview   # 预览生产构建
+npm run build     # Check TypeScript and build for production in dist/
+npm run preview   # Preview the production build
 ```
 
-如果 WSL 中的 `npm` 错误地指向 Windows 安装目录，请在 WSL 内安装 Node.js/npm 并检查 `command -v node npm`。已有依赖时，也可以直接运行 `node node_modules/vite/bin/vite.js --host 0.0.0.0`。
+If `npm` in WSL incorrectly points to a Windows installation, install Node.js and npm inside WSL and check `command -v node npm`. If dependencies are already installed, you can also run `node node_modules/vite/bin/vite.js --host 0.0.0.0` directly.
 
-## 可以做什么
+## Features
 
-- 探索 AWS、HPC、Machine Learning、Haskell、Frontend、Database、Distributed Systems 七个领域。
-- 点击节点展开或收起子节点，通过连线查看知识层级；点击面包屑回到父节点。
-- 在右侧查看解释、关键点、可展开问答和代码示例；手机上详情面板位于知识树下方。
-- 阅读完整的 AWS / S3、Bucket、Object、Static Website Hosting 初始内容。
-- 搜索所有层级的标题与描述，使用 `Ctrl+K` / `⌘K` 聚焦搜索，`Esc` 清空。
-- 将主题标为已学，在 My progress 中查看；学习标记和最近探索记录保存在当前浏览器的 localStorage 中。
-- 切换领域时切换配色、角色及装饰；动画遵循系统“减少动态效果”偏好。
-- 在手机上通过菜单打开侧栏，所有导航和知识节点均可用键盘操作。
+- Explore seven domains: AWS, HPC, Machine Learning, Haskell, Frontend, Database, and Distributed Systems.
+- Expand and collapse nodes to follow the knowledge hierarchy; use breadcrumbs to return to parent topics.
+- Read explanations, key points, expandable questions, and code examples in the detail panel. On mobile, the panel appears below the knowledge tree.
+- Explore detailed AWS topics such as S3, buckets, objects, and static website hosting.
+- Search titles and descriptions at every level. Use `Ctrl+K` or `⌘K` to focus the search box and `Esc` to clear it.
+- Mark topics as learned and review them under **My progress**. Learning progress and recently explored topics are saved in the current browser's `localStorage`.
+- Switch domains to change colors, characters, and decorative elements. Animations respect the system's reduced-motion preference.
+- Open the sidebar through the mobile menu. Navigation controls and knowledge nodes support keyboard interaction.
 
-学习数据不会发送到服务器，也不会跨设备同步。清除浏览器数据会清除进度；浏览器禁止持久化存储时，进度仅在本次会话中保留。领域根节点可以标记，概览的 topics / learned 数值只统计领域下的知识节点。
+Learning data is not sent to a server or synchronized across devices. Clearing browser data removes saved progress. If persistent storage is unavailable, progress remains available only for the current session. Domain root nodes can be marked as learned, but the overview's topic and learned counts include only nodes below each root.
 
-## 添加知识
+## Adding knowledge
 
-在 `src/data/knowledge.ts` 编辑领域和主干节点；在 `src/data/detailBranches.ts` 为现有节点增加深入分支。两处都使用 `src/types/knowledge.ts` 中的同一类型，支持任意深度的 `children`；每个节点必须有全局唯一且稳定的 `id`，因为学习进度会保存这些 ID。
+Edit domains and main branches in `src/data/knowledge.ts`. Add deeper branches to existing nodes in `src/data/detailBranches.ts`. Both files use the `KnowledgeNode` type in `src/types/knowledge.ts` and support `children` at any depth. Every node needs a globally unique, stable `id` because saved progress uses these IDs.
+
+For example, add a branch under the `bucket` key in `detailBranches.ts`:
 
 ```ts
 bucket: [
@@ -50,13 +52,13 @@ bucket: [
 ]
 ```
 
-把以上分支加入 `detailBranches.ts` 对应的父节点键下，搜索、知识树、面包屑和计数会自动更新。新增顶级领域时，也需要在 `src/config/themes.ts` 中按同一 `id` 添加主题。
+Search, the knowledge tree, breadcrumbs, and topic counts will update automatically. When adding a new top-level domain, also add a theme with the same `id` in `src/config/themes.ts`.
 
-## 添加 / 替换动漫素材
+## Adding or replacing anime assets
 
-现有素材与来源见 [ASSET_CREDITS.md](./ASSET_CREDITS.md)。Overview 顶部使用本地 MP4 动态封面；七个领域分别使用横向 2D 动画场景图，卡片和领域页共用同一主题画面。
+See [ASSET_CREDITS.md](./ASSET_CREDITS.md) for the current media and its sources. The overview uses a local MP4 background video. Each of the seven domains uses a wide 2D scene image shared by its card and domain page.
 
-将你选择的图片放入 `public/assets/`，然后统一在 `src/config/themes.ts` 中配置：
+Put new images in `public/assets/`, then configure them in `src/config/themes.ts`:
 
 ```ts
 hpc: {
@@ -69,37 +71,37 @@ hpc: {
 },
 ```
 
-推荐使用宽幅 PNG/WebP，并把主要角色放在画面右侧，为领域标题预留左侧空间。背景通过渐变遮罩保证文字可读；卡片使用 `object-fit: cover` 自动裁切。新增素材时请更新来源记录。
+Wide PNG or WebP images work best. Keep the main characters toward the right so the domain title has room on the left. A gradient overlay keeps text readable, and cards crop their images with `object-fit: cover`. Update the asset credits when adding new media.
 
-Overview 视频位于 `public/assets/video/site-background.mp4`。浏览器不允许带声音自动播放，因此视频默认静音；访客点击封面右上角的 `Sound on` 后可启用声音。进入领域页时视频节点会卸载，不会继续播放或占用页面背景。
+The overview video is at `public/assets/video/site-background.mp4`. It starts muted because browsers generally block autoplay with sound. Visitors can enable sound using the **Sound on** button in the upper-right corner of the cover. The video element unmounts when a domain page opens.
 
-## 部署到 Amazon S3
+## Deploying to Amazon S3
 
-1. 创建用于网站的 S3 bucket。
-2. 在 Properties 中启用 Static website hosting，设置 Index document 为 `index.html`。
-3. 执行 `npm run build`。
-4. 将 `dist/` **内部文件**上传到 bucket 根目录，包括 `index.html`、`favicon.svg` 和 `assets/`。
-5. 为打算公开的网站文件配置读取权限。直接使用 S3 website endpoint 时，需要允许公开读取；仅给这个网站专用 bucket 设置必要权限，遵循你的账户策略。
-6. 打开 S3 提供的 website endpoint 测试。
+1. Create an S3 bucket for the website.
+2. Under **Properties**, enable **Static website hosting** and set the index document to `index.html`.
+3. Run `npm run build`.
+4. Upload the **contents** of `dist/` to the bucket root, including `index.html`, `favicon.svg`, and `assets/`.
+5. Configure read access for the website files you intend to publish. Direct access through an S3 website endpoint requires public reads; limit those permissions to the dedicated website bucket and follow your account's policies.
+6. Open the S3 website endpoint to test the deployment.
 
-网站不使用路径路由，切换主题不会改变 URL，刷新不需要额外 SPA rewrite 配置。部署在子目录时，Vite 的相对 base 和主题资源路径也可正常使用。
+The site does not use path-based routing. Switching domains does not change the URL, so refreshing the page does not require an SPA rewrite rule. Vite's relative base path and the theme asset paths also support deployment under a subdirectory.
 
-S3 website endpoints 仅提供 HTTP。如需 HTTPS，可使用 CloudFront；使用私有 S3 bucket + CloudFront OAC 时，应配置 S3 REST origin，而非 website endpoint。部署参考：[AWS 官方静态网站指南](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)、[网站端点说明](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteEndpoints.html)。
+S3 website endpoints provide HTTP only. For HTTPS, use CloudFront. When using a private S3 bucket with CloudFront origin access control (OAC), configure the S3 REST endpoint as the origin rather than the website endpoint. See the [AWS static website guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html) and [website endpoint documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteEndpoints.html).
 
-## 项目结构
+## Project structure
 
 ```text
 src/
-  components/    递归知识节点、详情面板、主题卡片和图标
-  config/        主题颜色和背景配置
-  data/          学习内容
-  types/         TypeScript 数据类型
-  utils/         递归路径查找与节点展开
-  App.tsx        导航、搜索与本地学习进度
-  index.css      Tailwind 入口和响应式主题样式
-public/assets/   场景图片和背景视频
+  components/    Recursive knowledge nodes, detail panels, theme cards, and icons
+  config/        Theme colors and background configuration
+  data/          Learning content and detailed branches
+  types/         TypeScript data types
+  utils/         Recursive path lookup and node flattening
+  App.tsx        Navigation, search, and local learning progress
+  index.css      Tailwind entry point and responsive theme styles
+public/assets/   Scene images and background video
 ```
 
-## 验证
+## Verification
 
-- 2026-10-08：TypeScript 检查和 Vite 生产构建通过。
+- 2026-10-08: TypeScript checks and the Vite production build passed.
