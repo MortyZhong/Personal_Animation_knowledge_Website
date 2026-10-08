@@ -3,50 +3,80 @@ export interface ThemeConfig {
   accent: string;
   wash: string;
   label: string;
-  character?: string;
+  characterName?: string;
   background?: string;
+  backgroundPosition?: string;
   source?: string;
 }
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 export const themes: Record<string, ThemeConfig> = {
   aws: {
     name: "Bocchi the Rock!",
-    accent: "#98516c",
-    wash: "#fcf0f3",
+    accent: "#b74770",
+    wash: "#fff0f4",
     label: "A little courage. A new beginning.",
-    character: asset("bocchi/character.png"),
+    characterName: "Hitori Gotoh",
+    background: asset("scenes/bocchi-band-2d.png"),
+    backgroundPosition: "center 16%",
     source: "https://bocchi.rocks/tv/character/",
   },
   hpc: {
-    name: "Arknights",
-    accent: "#3e7085",
-    wash: "#edf5f8",
+    name: "Fate/stay night",
+    accent: "#356bc1",
+    wash: "#edf3ff",
     label: "Many cores. One shared goal.",
+    characterName: "Saber",
+    background: asset("scenes/fate-night-2d.png"),
+    backgroundPosition: "center 7%",
+    source: "https://www.fate-sn.com/ubw/character/",
   },
   ml: {
     name: "Re:Zero",
-    accent: "#776099",
-    wash: "#f3effa",
+    accent: "#8264ad",
+    wash: "#f5efff",
     label: "Every discovery starts with curiosity.",
-    character: asset("rezero/character.webp"),
+    characterName: "Emilia",
+    background: asset("scenes/rezero-dawn-2d.png"),
+    backgroundPosition: "center 12%",
     source: "https://re-zero-anime.jp/tv/character/",
   },
   haskell: {
     name: "Bunny Girl Senpai",
-    accent: "#636697",
-    wash: "#f0f1fa",
+    accent: "#5b629d",
+    wash: "#eff1fb",
     label: "Find beauty in a different perspective.",
+    characterName: "Mai Sakurajima",
+    background: asset("scenes/mai-twilight-2d.png"),
+    backgroundPosition: "center 9%",
+    source: "https://ao-buta.com/tv/character/",
+  },
+  frontend: {
+    name: "Too Many Losing Heroines!",
+    accent: "#287f9d",
+    wash: "#e8f7fa",
+    label: "Shape the interface. Connect the experience.",
+    characterName: "Anna Yanami & Tiara Basori",
+    background: asset("scenes/makeine-frontend-2d.png"),
+    backgroundPosition: "center 8%",
+    source: "https://makeine-anime.com/character/",
   },
   database: {
-    name: "Quiet garden",
-    accent: "#3f7869",
-    wash: "#edf7f1",
+    name: "Crossover Archive",
+    accent: "#397c79",
+    wash: "#ebf7f5",
     label: "Good ideas deserve a place to grow.",
+    characterName: "The Archive Ensemble",
+    background: asset("scenes/archive-crossover-2d.png"),
+    backgroundPosition: "center 10%",
   },
   distributed: {
     name: "Mushoku Tensei",
-    accent: "#3c7485",
-    wash: "#edf7f8",
+    accent: "#327b9d",
+    wash: "#ebf7fc",
     label: "A whole world of connections.",
+    characterName: "Roxy Migurdia",
+    background: asset("scenes/mushoku-journey-2d.png"),
+    backgroundPosition: "center 6%",
+    source: "https://mushokutensei.jp/character/",
   },
 };

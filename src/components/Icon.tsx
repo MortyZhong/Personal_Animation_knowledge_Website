@@ -11,6 +11,8 @@ import {
   Server,
   Zap,
   BookOpen,
+  MonitorSmartphone,
+  Palette,
 } from "lucide-react";
 const icons = {
   brain: Brain,
@@ -25,6 +27,8 @@ const icons = {
   server: Server,
   zap: Zap,
   book: BookOpen,
+  frontend: MonitorSmartphone,
+  palette: Palette,
 };
 export function Icon({
   name = "book",

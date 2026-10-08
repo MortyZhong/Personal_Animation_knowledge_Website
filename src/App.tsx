@@ -5,8 +5,8 @@ import {
   useState,
   type CSSProperties,
 } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
@@ -22,13 +22,14 @@ import {
   Search,
   Sparkles,
   Sprout,
+  Volume2,
+  VolumeX,
   X,
 } from "lucide-react";
 import { knowledge } from "./data/knowledge";
 import { themes } from "./config/themes";
 import { findPath, flatten } from "./utils/knowledge";
 import { Icon } from "./components/Icon";
-import { Artwork } from "./components/Artwork";
 import { TopicCard } from "./components/TopicCard";
 import { KnowledgeNode } from "./components/KnowledgeNode";
 import { DetailPanel } from "./components/DetailPanel";
@@ -65,11 +66,13 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [panelOpen, setPanelOpen] = useState(true);
   const [storageUnavailable, setStorageUnavailable] = useState(false);
+  const [videoMuted, setVideoMuted] = useState(true);
   const searchRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const path = useMemo(() => findPath(knowledge, selectedId), [selectedId]);
   const domain = path[0];
   const selected = path[path.length - 1];
-  const theme = themes[domain?.id ?? "aws"];
+  const theme = themes[domain?.id ?? "ml"];
   const learnedTopics = progress.learned.filter(
     (id) => !knowledge.some((node) => node.id === id),
   ).length;
@@ -123,6 +126,7 @@ export default function App() {
     setPanelOpen(true);
     setQuery("");
     setMenuOpen(false);
+    setVideoMuted(true);
     setProgress((previous) => ({
       ...previous,
       recent: [id, ...previous.recent.filter((item) => item !== id)].slice(
@@ -136,6 +140,22 @@ export default function App() {
     setView(nextView);
     setMenuOpen(false);
     setQuery("");
+    setVideoMuted(true);
+  }
+  async function toggleVideoSound() {
+    const video = videoRef.current;
+    if (!video) return;
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setVideoMuted(nextMuted);
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch {
+        video.muted = true;
+        setVideoMuted(true);
+      }
+    }
   }
   function toggleLearned() {
     if (!selected) return;
@@ -148,7 +168,7 @@ export default function App() {
   }
   return (
     <div
-      className="app"
+      className={`app ${!domain && view === "explore" ? "overview-active" : ""}`}
       style={
         {
           "--accent": theme.accent,
@@ -305,80 +325,108 @@ export default function App() {
           </span>
         </header>
         <main id="main-content">
-          <section className={`hero ${domain ? "domain-hero" : ""}`}>
-            <div className="hero-grid" />
-            <span className="hero-orbit" />
-            <span className="hero-star star-one">✦</span>
-            <span className="hero-star star-two">✧</span>
-            <div className="hero-copy">
-              <div className="hero-kicker">
-                <span />
-                {domain
-                  ? `CHAPTER 0${knowledge.indexOf(domain) + 1} · ${theme.name.toUpperCase()}`
-                  : "A LITTLE FURTHER, EVERY DAY"}
-              </div>
-              <h1>
-                {domain ? (
-                  <>
-                    {domain.title}
-                    <span>{domain.subtitle}.</span>
-                  </>
-                ) : (
-                  <>
-                    Explore what
-                    <br />I have <em>learned.</em>
-                  </>
-                )}
-              </h1>
-              <p>
-                {domain
-                  ? domain.description
-                  : "A little universe of ideas, discoveries, and connections.\nWelcome to my computer science journey."}
-              </p>
-              <div className="hero-bottom">
-                <span>
-                  <GitBranch size={14} />
-                  {domain
-                    ? flatten(domain.children ?? []).length
-                    : topicCount}{" "}
-                  topics to discover
-                </span>
-                <span className="tiny-dot" />
-                <span>
-                  {domain ? theme.label : "Always a work in progress"}
-                </span>
-              </div>
-            </div>
-            <AnimatePresence mode="wait">
-              <motion.div
-                className="hero-art"
-                key={domain?.id ?? "home"}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+          {!domain && view === "explore" ? (
+            <section className="overview-cinema" aria-label="Overview video">
+              <video
+                ref={videoRef}
+                autoPlay
+                muted={videoMuted}
+                loop
+                playsInline
+                preload="metadata"
               >
-                {theme.background && (
-                  <img
-                    src={theme.background}
-                    className="theme-background"
-                    alt=""
-                    onError={(event) => {
-                      event.currentTarget.style.display = "none";
-                    }}
-                  />
-                )}
-                <span className="art-disc" />
-                <span className="art-disc-small" />
-                <Artwork src={theme.character} />
-                <span className="art-label">
-                  <Sparkles size={13} /> Stay curious.
-                </span>
-              </motion.div>
-            </AnimatePresence>
-            <span className="hero-side-text">LEARN · CONNECT · GROW</span>
-          </section>
-          <div className="workspace-grid">
+                <source
+                  src={`${import.meta.env.BASE_URL}assets/video/site-background.mp4`}
+                  type="video/mp4"
+                />
+              </video>
+              <div className="cinema-shade" />
+              <div className="cinema-copy">
+                <div className="hero-kicker">
+                  <span /> A LITTLE FURTHER, EVERY DAY
+                </div>
+                <h1>
+                  Explore what
+                  <br />I have <em>learned.</em>
+                </h1>
+                <p>
+                  A little universe of ideas, discoveries, and connections.
+                  <br />Welcome to my computer science journey.
+                </p>
+                <div className="hero-bottom">
+                  <span>
+                    <GitBranch size={14} /> {topicCount} topics to discover
+                  </span>
+                  <span className="tiny-dot" />
+                  <span>Always a work in progress</span>
+                </div>
+              </div>
+              <button
+                className="sound-toggle"
+                type="button"
+                onClick={toggleVideoSound}
+                aria-label={videoMuted ? "Turn video sound on" : "Mute video"}
+              >
+                {videoMuted ? <VolumeX size={17} /> : <Volume2 size={17} />}
+                {videoMuted ? "Sound on" : "Mute"}
+              </button>
+              <a className="scroll-cue" href="#learning-content">
+                <span>SCROLL TO EXPLORE</span>
+                <ArrowDown size={16} />
+              </a>
+            </section>
+          ) : (
+            <section className={`hero ${domain ? "domain-hero" : ""}`}>
+              {domain && theme.background && (
+                <img
+                  className="domain-scene-background"
+                  src={theme.background}
+                  style={{ objectPosition: theme.backgroundPosition }}
+                  alt=""
+                  aria-hidden="true"
+                />
+              )}
+              <div className="hero-grid" />
+              <span className="hero-orbit" />
+              <span className="hero-star star-one">✦</span>
+              <div className="hero-copy">
+                <div className="hero-kicker">
+                  <span />
+                  {domain
+                    ? `CHAPTER 0${knowledge.indexOf(domain) + 1} · ${theme.name.toUpperCase()}`
+                    : "YOUR LEARNING JOURNEY"}
+                </div>
+                <h1>
+                  {domain ? (
+                    <>
+                      {domain.title}
+                      <span>{domain.subtitle}.</span>
+                    </>
+                  ) : (
+                    <>See how far you have come.</>
+                  )}
+                </h1>
+                <p>
+                  {domain
+                    ? domain.description
+                    : "Every saved topic is another connection in your learning map."}
+                </p>
+                <div className="hero-bottom">
+                  <span>
+                    <GitBranch size={14} />
+                    {domain
+                      ? flatten(domain.children ?? []).length
+                      : learnedTopics}{" "}
+                    {domain ? "topics to discover" : "connections made"}
+                  </span>
+                  <span className="tiny-dot" />
+                  <span>{domain ? theme.label : "Keep going"}</span>
+                </div>
+              </div>
+              <span className="hero-side-text">LEARN · CONNECT · GROW</span>
+            </section>
+          )}
+          <div className="workspace-grid" id="learning-content">
             <section
               className="map-area"
               aria-label={domain ? "Knowledge map" : "Learning domains"}

@@ -1,12 +1,23 @@
-# Artwork sources
+# Visual asset notes
 
-The following locally stored images were obtained from publicly accessible official character pages on 2026-09-21 for this personal learning project. They are third-party artwork, not original illustrations or assets licensed by this repository. Public availability does not establish permission to redistribute them. No explicit reuse licence was identified on the character pages; confirm the applicable rights before public redistribution. Replace either image by changing `src/config/themes.ts`.
+## AI-generated 2D domain scenes
 
-| Local file                            | Character / series              | Official source                                                   | Original image                                                                     |
-| ------------------------------------- | ------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `public/assets/bocchi/character.png`  | Hitori Gotoh / Bocchi the Rock! | [Official character page](https://bocchi.rocks/tv/character/)     | [Character PNG](https://bocchi.rocks/tv/assets/img/page/character/hitori/main.png) |
-| `public/assets/rezero/character.webp` | Emilia / Re:Zero                | [Official character page](https://re-zero-anime.jp/tv/character/) | [Character WebP](https://re-zero-anime.jp/tv/assets/character/c/2a.webp)           |
+The following wide PNGs were generated for this project with OpenAI's built-in image-generation tool on 2026-09-21. They use a hand-drawn, cel-shaded 2D anime direction and are shown as domain banners and card covers:
 
-The original files are kept without raster editing. CSS controls their placement and size. Network access is not required to display them after installation. The source page is also linked below each applicable detail panel.
+| Local file | Scene / series | Reference page |
+| --- | --- | --- |
+| `public/assets/scenes/bocchi-band-2d.png` | Hitori Gotoh and band / Bocchi the Rock! | [Official anime character page](https://bocchi.rocks/tv/character/) |
+| `public/assets/scenes/fate-night-2d.png` | Saber, Rin and Archer / Fate | [Official anime character page](https://www.fate-sn.com/ubw/character/) |
+| `public/assets/scenes/rezero-dawn-2d.png` | Emilia, Puck and Subaru / Re:Zero season one | [Official anime character page](https://re-zero-anime.jp/tv/character/) |
+| `public/assets/scenes/mai-twilight-2d.png` | Mai and Sakuta / Bunny Girl Senpai | [Official anime character page](https://ao-buta.com/tv/character/) |
+| `public/assets/scenes/makeine-frontend-2d.png` | Anna Yanami and Tiara Basori / Too Many Losing Heroines! | [Official anime character page](https://makeine-anime.com/character/) |
+| `public/assets/scenes/archive-crossover-2d.png` | Emilia, Roxy, Mai and Saber / crossover archive | Reference pages listed above and below |
+| `public/assets/scenes/mushoku-journey-2d.png` | Roxy and companions / Mushoku Tensei | [Official anime character page](https://mushokutensei.jp/character/) |
 
-Other themes use CSS shapes and Lucide icons as intentional fallbacks, with no external image requests. Lucide icons are provided by the `lucide-react` package under its ISC licence. No font CDN, analytics, or runtime third-party service is required.
+The prompts requested wide 2D television-anime illustrations with no logos, text, or watermarks. Character names and designs remain the property of their respective rights holders.
+
+## Background video
+
+`public/assets/video/site-background.mp4` is the user-provided video used as the muted, looping site background.
+
+The site uses local media with no runtime third-party image requests. Lucide icons are provided by the `lucide-react` package under its ISC licence. No font CDN, analytics, or runtime third-party service is required.

@@ -8,3 +8,5 @@ dist/
 playwright-report/
 test-results/
 *.tsbuildinfo
+public/assets/scenes/bocchi-character.png
+public/assets/scenes/emilia-character.webp

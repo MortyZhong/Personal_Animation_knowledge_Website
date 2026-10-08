@@ -10,7 +10,6 @@ import {
 import type { KnowledgeNode } from "../types/knowledge";
 import type { ThemeConfig } from "../config/themes";
 import { Icon } from "./Icon";
-import { Artwork } from "./Artwork";
 interface Props {
   node: KnowledgeNode;
   theme: ThemeConfig;
@@ -50,7 +49,14 @@ export function DetailPanel({
         <div className="detail-icon">
           <Icon name={node.icon} size={28} />
         </div>
-        <Artwork src={theme.character} />
+        {theme.background && (
+          <img
+            className="detail-scene"
+            src={theme.background}
+            alt=""
+            aria-hidden="true"
+          />
+        )}
         <span className="banner-star">✧</span>
       </div>
       <div className="detail-content">
@@ -117,7 +123,7 @@ export function DetailPanel({
             target="_blank"
             rel="noreferrer"
           >
-            {theme.name} · artwork source <ArrowUpRight size={12} />
+            {theme.name} · character reference <ArrowUpRight size={12} />
           </a>
         )}
       </div>

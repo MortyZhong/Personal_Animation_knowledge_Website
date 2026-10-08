@@ -24,7 +24,7 @@ npm run preview   # 预览生产构建
 
 ## 可以做什么
 
-- 探索 AWS、HPC、Machine Learning、Haskell、Database、Distributed Systems 六个领域。
+- 探索 AWS、HPC、Machine Learning、Haskell、Frontend、Database、Distributed Systems 七个领域。
 - 点击节点展开或收起子节点，通过连线查看知识层级；点击面包屑回到父节点。
 - 在右侧查看解释、关键点、可展开问答和代码示例；手机上详情面板位于知识树下方。
 - 阅读完整的 AWS / S3、Bucket、Object、Static Website Hosting 初始内容。
@@ -57,23 +57,24 @@ npm run preview   # 预览生产构建
 
 ## 添加 / 替换动漫素材
 
-现有官方素材与来源见 [ASSET_CREDITS.md](./ASSET_CREDITS.md)。本次加入了后藤一里和爱蜜莉雅，分别用于 AWS 与 Machine Learning；其他领域使用几何与轨道图案占位。
+现有素材与来源见 [ASSET_CREDITS.md](./ASSET_CREDITS.md)。Overview 顶部使用本地 MP4 动态封面；七个领域分别使用横向 2D 动画场景图，卡片和领域页共用同一主题画面。
 
 将你选择的图片放入 `public/assets/`，然后统一在 `src/config/themes.ts` 中配置：
 
 ```ts
 hpc: {
-  name: 'Arknights',
+  name: 'Example theme',
   accent: '#53869b',
   wash: '#edf5f8',
   label: 'Many cores. One shared goal.',
-  character: asset('arknights/character.png'),
-  background: asset('arknights/background.webp'),
+  background: asset('scenes/example-theme.png'),
   source: 'https://your-original-source.example/',
 },
 ```
 
-推荐透明 PNG/WebP。角色使用 `object-fit: contain` 和 `pointer-events: none`，融入主题横幅与笔记面板；可选背景通过低透明度和模糊保证文字可读。图片加载失败时显示装饰占位，不影响知识导航。无需修改 React 组件。新增素材时请更新来源记录。
+推荐使用宽幅 PNG/WebP，并把主要角色放在画面右侧，为领域标题预留左侧空间。背景通过渐变遮罩保证文字可读；卡片使用 `object-fit: cover` 自动裁切。新增素材时请更新来源记录。
+
+Overview 视频位于 `public/assets/video/site-background.mp4`。浏览器不允许带声音自动播放，因此视频默认静音；访客点击封面右上角的 `Sound on` 后可启用声音。进入领域页时视频节点会卸载，不会继续播放或占用页面背景。
 
 ## 部署到 Amazon S3
 
@@ -92,19 +93,16 @@ S3 website endpoints 仅提供 HTTP。如需 HTTPS，可使用 CloudFront；使�
 
 ```text
 src/
-  components/    递归知识节点、详情面板、主题卡片、插画和图标
-  config/        主题颜色、角色图片和背景配置
+  components/    递归知识节点、详情面板、主题卡片和图标
+  config/        主题颜色和背景配置
   data/          学习内容
   types/         TypeScript 数据类型
   utils/         递归路径查找与节点展开
   App.tsx        导航、搜索与本地学习进度
   index.css      Tailwind 入口和响应式主题样式
-public/assets/   本地角色素材
+public/assets/   场景图片和背景视频
 ```
 
-## 本次验证
+## 验证
 
-- 依赖安装及 `npm run build` 成功；项目依赖审计未报告漏洞。
-- Chromium 实际测试：六个领域入口、递归展开、面包屑、问答、已学标记及刷新后的进度恢复、搜索、角色切换、详情面板开关和素材缺失回退。
-- 检查了 1440、1024、768、390、320px 页面宽度，未发现页面横向溢出；手机导航可用。
-- 首页与 AWS / S3 详情页通过 axe 自动可访问性检查，浏览器未发现 JavaScript 运行错误。自动检查不替代完整的人工辅助技术验证。
+- 2026-10-08：TypeScript 检查和 Vite 生产构建通过。

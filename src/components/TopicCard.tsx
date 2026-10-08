@@ -34,40 +34,53 @@ export function TopicCard({
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.985 }}
       onClick={() => onSelect(node.id)}
+      aria-label={`Explore ${node.title}${theme.characterName ? ` with ${theme.characterName}` : ""}`}
     >
-      <div className={`card-visual visual-${node.id}`}>
-        <span className="card-number">0{index + 1} / EXPLORE</span>
-        <div className="visual-orbit orbit-one" />
-        <div className="visual-orbit orbit-two" />
-        <span className="card-main-icon">
-          <Icon name={node.icon} size={40} />
-        </span>
-        <span className="visual-spark">✦</span>
-        <span className="visual-symbol">
-          {node.id === "haskell" ? "λ" : node.id === "ml" ? "✧" : "+"}
-        </span>
-      </div>
-      <div className="card-content">
-        <div className="card-title">
-          <h3>{node.title}</h3>
-          <ArrowUpRight size={18} />
-        </div>
-        <p>{node.subtitle}</p>
-        <div className="card-meta">
-          <span>
-            <GitBranch size={13} /> {topics.length} topics
+      <div className="topic-card-tilt">
+        <div className={`card-visual visual-${node.id}`}>
+          <span className="card-number">0{index + 1} / EXPLORE</span>
+          {theme.background && (
+            <img
+              className="card-scene"
+              src={theme.background}
+              alt=""
+              aria-hidden="true"
+              draggable={false}
+            />
+          )}
+          <span className="card-domain-icon">
+            <Icon name={node.icon} size={15} />
           </span>
-          <span>
-            {count ? `${count} learned` : "Ready to explore"}
-            <i className={count ? "started" : ""} />
+          {theme.characterName && (
+            <span className="character-name">{theme.characterName}</span>
+          )}
+          <span className="visual-spark">✦</span>
+          <span className="visual-symbol">
+            {node.id === "haskell" ? "λ" : node.id === "ml" ? "✧" : "+"}
           </span>
         </div>
-        <div className="progress-track">
-          <span
-            style={{
-              width: `${topics.length ? (count / topics.length) * 100 : 0}%`,
-            }}
-          />
+        <div className="card-content">
+          <div className="card-title">
+            <h3>{node.title}</h3>
+            <ArrowUpRight size={18} />
+          </div>
+          <p>{node.subtitle}</p>
+          <div className="card-meta">
+            <span>
+              <GitBranch size={13} /> {topics.length} topics
+            </span>
+            <span>
+              {count ? `${count} learned` : "Ready to explore"}
+              <i className={count ? "started" : ""} />
+            </span>
+          </div>
+          <div className="progress-track">
+            <span
+              style={{
+                width: `${topics.length ? (count / topics.length) * 100 : 0}%`,
+              }}
+            />
+          </div>
         </div>
       </div>
     </motion.button>
