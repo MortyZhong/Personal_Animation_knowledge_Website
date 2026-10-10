@@ -10,7 +10,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
-  font-size: 14px;
+  font-size: calc(14px + var(--main-font-increase, 0px));
 }
 * {
   box-sizing: border-box;
@@ -104,20 +104,20 @@ button:disabled {
   transform: rotate(-5deg);
 }
 .brand > span:last-child {
-  font-size: 14px;
+  font-size: calc(14px + var(--main-font-increase, 0px));
   font-weight: 700;
   letter-spacing: -0.4px;
 }
 .brand small {
   display: block;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   letter-spacing: 2.3px;
   margin-top: 6px;
   color: #9493a4;
   font-weight: 500;
 }
 .sidebar-label {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   font-weight: 650;
   letter-spacing: 1.7px;
   color: #9295a4;
@@ -131,7 +131,7 @@ button:disabled {
   padding: 12px;
   border-radius: 8px;
   color: #747889;
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
   margin: 4px 0;
   text-align: left;
   transition:
@@ -158,7 +158,7 @@ button:disabled {
 }
 .nav-count {
   margin-left: auto;
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   color: #898395;
 }
 .domains-label {
@@ -167,13 +167,13 @@ button:disabled {
   justify-content: space-between;
 }
 .domains-label span {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   border: 1px solid #e7e7ee;
   padding: 0 4px;
   border-radius: 3px;
 }
 .domain-nav .nav-item {
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   padding-top: 13px;
   padding-bottom: 13px;
 }
@@ -206,7 +206,7 @@ button:disabled {
   top: 19px;
 }
 .growth-card p {
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
   line-height: 1.8;
   color: #6b7082;
 }
@@ -214,7 +214,7 @@ button:disabled {
   font-weight: 500;
 }
 .growth-card > span {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   display: block;
   margin-top: 10px;
   line-height: 1.8;
@@ -239,7 +239,7 @@ button:disabled {
   position: relative;
   font-family: Georgia, serif;
   font-style: italic;
-  font-size: 15px;
+  font-size: calc(15px + var(--main-font-increase, 0px));
 }
 .avatar > span {
   height: 7px;
@@ -252,13 +252,13 @@ button:disabled {
   border: 2px solid white;
 }
 .profile > div {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   font-weight: 600;
 }
 .profile small {
   display: block;
   color: #9293a1;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   font-weight: 400;
   margin-top: 5px;
 }
@@ -296,7 +296,7 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 11px;
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   white-space: nowrap;
 }
 .location-icon {
@@ -325,7 +325,7 @@ button:disabled {
 }
 .search-wrap input {
   font: inherit;
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   width: 100%;
   min-width: 0;
   background: transparent;
@@ -337,7 +337,7 @@ button:disabled {
 }
 .search-wrap kbd {
   font-family: inherit;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   white-space: nowrap;
   border: 1px solid #e3e4ed;
   border-radius: 3px;
@@ -345,13 +345,15 @@ button:disabled {
   color: #a4a2b1;
 }
 .topbar-spark {
-  font-size: 25px;
+  font-size: calc(25px + var(--main-font-increase, 0px));
   color: #aca2c3;
 }
 .mobile-menu {
   display: none !important;
 }
 main {
+  --main-font-increase: 4px;
+  font-size: calc(14px + var(--main-font-increase));
   max-width: 1600px;
   margin: auto;
   padding: 30px 38px 0;
@@ -398,7 +400,7 @@ main {
   gap: 7px;
   letter-spacing: 2px;
   color: #87759f;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   font-weight: 650;
   margin-bottom: 17px;
 }
@@ -409,7 +411,7 @@ main {
   background: #a294bc;
 }
 .hero h1 {
-  font-size: 43px;
+  font-size: calc(43px + var(--main-font-increase, 0px));
   line-height: 1.18;
   letter-spacing: -1.8px;
   font-weight: 600;
@@ -421,7 +423,7 @@ main {
   color: #9a82b8;
 }
 .hero p {
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   line-height: 1.9;
   color: #818096;
   margin-top: 14px;
@@ -433,7 +435,7 @@ main {
   gap: 10px;
   align-items: center;
   color: #9491a7;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   margin-top: 22px;
   flex-wrap: wrap;
 }
@@ -455,7 +457,7 @@ main {
   writing-mode: vertical-rl;
   letter-spacing: 3px;
   color: #b0a2bf;
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
 }
 .hero-star {
   position: absolute;
@@ -465,7 +467,7 @@ main {
 .star-one {
   right: 38%;
   top: 40px;
-  font-size: 25px;
+  font-size: calc(25px + var(--main-font-increase, 0px));
 }
 .hero-orbit {
   position: absolute;
@@ -485,11 +487,11 @@ main {
   transition: background 0.3s;
 }
 .domain-hero h1 {
-  font-size: 36px;
+  font-size: calc(36px + var(--main-font-increase, 0px));
 }
 .domain-hero h1 > span {
   display: block;
-  font-size: 20px;
+  font-size: calc(20px + var(--main-font-increase, 0px));
   letter-spacing: -0.4px;
   font-weight: 400;
   margin-top: 8px;
@@ -513,14 +515,14 @@ main {
   gap: 10px;
 }
 .eyebrow {
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   font-weight: 600;
   letter-spacing: 1.9px;
   color: #9997aa;
   display: block;
 }
 .section-heading h2 {
-  font-size: 19px;
+  font-size: calc(19px + var(--main-font-increase, 0px));
   font-weight: 600;
   letter-spacing: -0.6px;
   margin-top: 8px;
@@ -529,7 +531,7 @@ main {
   gap: 10px;
 }
 .section-heading h2 > span {
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   background: #eeedf6;
   color: #a19ab6;
   border: 1px solid #e3e0ef;
@@ -542,7 +544,7 @@ main {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   color: #9290a2;
 }
 .topic-grid {
@@ -603,7 +605,7 @@ main {
   position: absolute;
   left: 13px;
   top: 13px;
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
   letter-spacing: 1.3px;
   opacity: 0.75;
 }
@@ -634,7 +636,7 @@ main {
   border-radius: 6px;
   background: #ffffffad;
   color: var(--card-accent);
-  font: italic 10px Georgia, serif;
+  font: italic calc(10px + var(--main-font-increase, 0px)) Georgia, serif;
   letter-spacing: 0.2px;
   box-shadow: 0 5px 16px #17131f14;
   backdrop-filter: blur(7px);
@@ -644,14 +646,14 @@ main {
   position: absolute;
   right: 22px;
   top: 26px;
-  font-size: 16px;
+  font-size: calc(16px + var(--main-font-increase, 0px));
   opacity: 0.5;
 }
 .visual-symbol {
   position: absolute;
   left: 26px;
   bottom: 20px;
-  font-size: 17px;
+  font-size: calc(17px + var(--main-font-increase, 0px));
   opacity: 0.5;
 }
 .visual-hpc {
@@ -674,7 +676,7 @@ main {
   gap: 3px;
 }
 .card-title h3 {
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
   font-weight: 650;
   letter-spacing: -0.2px;
 }
@@ -683,17 +685,17 @@ main {
   width: 14px;
 }
 .card-content p {
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   color: #9494a3;
   margin-top: 6px;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 .card-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2px;
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
   margin-top: 21px;
   color: #9e9caa;
 }
@@ -728,7 +730,7 @@ main {
 .bottom-note {
   color: #9c99ab;
   text-align: center;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   margin: 25px 0;
   display: flex;
   align-items: center;
@@ -736,7 +738,7 @@ main {
   gap: 8px;
 }
 .bottom-note > span {
-  font-size: 18px;
+  font-size: calc(18px + var(--main-font-increase, 0px));
   color: #b5a6c8;
 }
 .journey-panel,
@@ -760,7 +762,7 @@ main {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   letter-spacing: 1.4px;
   font-weight: 600;
 }
@@ -782,14 +784,14 @@ main {
 }
 .journey-intro h2 {
   font-family: Georgia, serif;
-  font-size: 25px;
+  font-size: calc(25px + var(--main-font-increase, 0px));
   font-weight: 400;
   line-height: 1.25;
   letter-spacing: -0.5px;
   color: #66617d;
 }
 .journey-intro p {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   line-height: 1.9;
   color: #9b97ab;
   margin-top: 13px;
@@ -812,13 +814,13 @@ main {
 }
 .journey-stats strong {
   display: block;
-  font-size: 19px;
+  font-size: calc(19px + var(--main-font-increase, 0px));
   font-weight: 500;
   color: #787087;
 }
 .journey-stats span {
   display: block;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   color: #a29daf;
   margin-top: 5px;
 }
@@ -830,7 +832,7 @@ main {
   border-radius: 9px;
 }
 .start-card > .eyebrow {
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
   color: #a698b8;
   letter-spacing: 1.3px;
 }
@@ -850,12 +852,12 @@ main {
   color: #b290ae;
 }
 .start-card h3 {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   font-weight: 500;
   color: #70607d;
 }
 .start-card p {
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   color: #a091ad;
   margin-top: 5px;
 }
@@ -863,7 +865,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   color: #9275ad;
   margin-top: 15px;
   padding: 10px 0 0;
@@ -874,14 +876,14 @@ main {
   padding: 23px 19px 5px;
 }
 .recent-section h3 {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   font-weight: 500;
   color: #716779;
   display: flex;
   justify-content: space-between;
 }
 .recent-section > p {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   line-height: 1.8;
   color: #a29bac;
   margin-top: 10px;
@@ -892,7 +894,7 @@ main {
   align-items: center;
   width: 100%;
   text-align: left;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   color: #8f839f;
   padding: 10px 0;
   border-bottom: 1px solid #f3f0f6;
@@ -911,20 +913,20 @@ main {
 .quote > span {
   display: block;
   font-family: Georgia, serif;
-  font-size: 30px;
+  font-size: calc(30px + var(--main-font-increase, 0px));
   height: 24px;
   color: #c4b9d3;
 }
 .quote p {
   font-family: Georgia, serif;
   font-style: italic;
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   line-height: 1.7;
 }
 .quote small {
   display: block;
   letter-spacing: 1.2px;
-  font-size: 6px;
+  font-size: calc(6px + var(--main-font-increase, 0px));
   margin-top: 10px;
   color: #b6acbf;
 }
@@ -935,7 +937,7 @@ footer {
   padding: 21px 0 25px;
   border-top: 1px solid #e9e9f0;
   color: #a3a2af;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   margin-top: 10px;
 }
 footer > span {
@@ -950,10 +952,10 @@ footer i {
 .footer-flower {
   margin-left: 5px;
   color: #b6a9c8;
-  font-size: 20px;
+  font-size: calc(20px + var(--main-font-increase, 0px));
 }
 .text-button {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   color: #9985b3;
   display: flex;
   align-items: center;
@@ -969,7 +971,7 @@ footer i {
   gap: 8px;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   color: #9990a9;
   padding: 12px 14px;
   border: 1px solid #e6e4ee;
@@ -1007,7 +1009,7 @@ footer i {
   position: absolute;
   left: 19px;
   top: 20px;
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
   letter-spacing: 1.5px;
   color: #a39cb1;
   display: flex;
@@ -1055,13 +1057,13 @@ footer i {
   z-index: 1;
 }
 .tree-node > span:nth-child(2) {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   line-height: 1.5;
   flex: 1;
 }
 .tree-node small {
   display: block;
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
   color: #a19baa;
   font-weight: 400;
   margin-top: 4px;
@@ -1153,7 +1155,7 @@ footer i {
   justify-content: space-between;
   gap: 10px;
   color: #a7a0b1;
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
 }
 .canvas-footer > span {
   display: flex;
@@ -1171,7 +1173,7 @@ footer i {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   color: #a095ad;
   padding: 17px 5px;
   line-height: 1.7;
@@ -1221,7 +1223,7 @@ footer i {
   left: 44%;
   top: 16px;
   color: var(--accent);
-  font-size: 25px;
+  font-size: calc(25px + var(--main-font-increase, 0px));
   opacity: 0.4;
 }
 .detail-content {
@@ -1229,22 +1231,22 @@ footer i {
 }
 .accent {
   color: var(--accent);
-  font-size: 7px;
+  font-size: calc(7px + var(--main-font-increase, 0px));
   letter-spacing: 1.6px;
 }
 .detail-content h2 {
-  font-size: 21px;
+  font-size: calc(21px + var(--main-font-increase, 0px));
   line-height: 1.3;
   margin: 9px 0 12px;
   letter-spacing: -0.5px;
 }
 .description {
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   line-height: 1.85;
   color: #878191;
 }
 .detail-content h3 {
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -1263,7 +1265,7 @@ footer i {
   margin: 0;
 }
 .key-points li {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   line-height: 1.8;
   color: #82768c;
   padding: 3px 0;
@@ -1279,7 +1281,7 @@ footer i {
   padding: 12px 0;
 }
 .questions summary {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   font-weight: 500;
   list-style: none;
   cursor: pointer;
@@ -1300,7 +1302,7 @@ footer i {
   transform: rotate(180deg);
 }
 .questions details p {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   line-height: 1.9;
   color: #928799;
   margin-top: 9px;
@@ -1312,7 +1314,7 @@ footer i {
   background: #f5f3f8;
   padding: 12px;
   border-radius: 7px;
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   line-height: 1.7;
   color: #877591;
   white-space: pre-wrap;
@@ -1329,7 +1331,7 @@ footer i {
   gap: 7px;
   background: var(--accent);
   color: white;
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
 }
 .learn-button:hover {
   filter: brightness(0.95);
@@ -1340,7 +1342,7 @@ footer i {
   border: 1px solid #dbe9df;
 }
 .art-credit {
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   color: #aaa0b2;
   display: flex;
   align-items: center;
@@ -1358,7 +1360,7 @@ footer i {
   margin-top: 20px;
 }
 .note-callout p {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   line-height: 1.7;
 }
 .search-results {
@@ -1376,7 +1378,7 @@ footer i {
   padding: 8px;
 }
 .search-caption {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   padding: 7px 9px;
   color: #a49aad;
 }
@@ -1395,16 +1397,16 @@ footer i {
 }
 .search-results button > span {
   flex: 1;
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
 }
 .search-results small {
   display: block;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   margin-top: 5px;
   color: #a49aac;
 }
 .search-results > p {
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
   padding: 15px;
   color: #988caa;
 }
@@ -1431,21 +1433,21 @@ footer i {
   background: linear-gradient(120deg, #f4f1fa, #f9f5fa);
 }
 .progress-big {
-  font-size: 43px;
+  font-size: calc(43px + var(--main-font-increase, 0px));
   color: #9a88b5;
   font-weight: 300;
 }
 .progress-big small {
-  font-size: 19px;
+  font-size: calc(19px + var(--main-font-increase, 0px));
   color: #bcb2c9;
 }
 .progress-summary h3 {
-  font-size: 14px;
+  font-size: calc(14px + var(--main-font-increase, 0px));
   color: #80758d;
   margin-top: 4px;
 }
 .progress-summary p {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   color: #a094ac;
   margin-top: 10px;
 }
@@ -1461,11 +1463,11 @@ footer i {
   margin: 0 auto 16px;
 }
 .empty-progress h3 {
-  font-size: 14px;
+  font-size: calc(14px + var(--main-font-increase, 0px));
   color: #877a93;
 }
 .empty-progress p {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   color: #a69bb0;
   line-height: 1.8;
   margin-top: 9px;
@@ -1478,7 +1480,7 @@ footer i {
   gap: 9px;
   border-radius: 7px;
   padding: 11px 16px;
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   margin-top: 20px;
 }
 .learned-list {
@@ -1492,14 +1494,14 @@ footer i {
   padding: 16px 0;
   text-align: left;
   border-bottom: 1px solid #f1edf5;
-  font-size: 11px;
+  font-size: calc(11px + var(--main-font-increase, 0px));
 }
 .learned-list > button > span:nth-child(2) {
   flex: 1;
 }
 .learned-list small {
   display: block;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   color: #ac9eb8;
   margin-top: 5px;
 }
@@ -1549,7 +1551,7 @@ footer i {
     min-height: 310px;
   }
   .hero h1 {
-    font-size: 49px;
+    font-size: calc(49px + var(--main-font-increase, 0px));
   }
   .hero-copy {
     padding-left: 43px;
@@ -1565,16 +1567,16 @@ footer i {
     padding: 18px;
   }
   .card-title h3 {
-    font-size: 14px;
+    font-size: calc(14px + var(--main-font-increase, 0px));
   }
   .card-content p {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
   }
   .card-meta {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .card-number {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .tree-node {
     width: 160px;
@@ -1607,19 +1609,19 @@ footer i {
     padding-left: 28px;
   }
   .hero h1 {
-    font-size: 39px;
+    font-size: calc(39px + var(--main-font-increase, 0px));
   }
   .card-visual {
     height: 164px;
   }
   .card-title h3 {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .card-content p {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
   }
   .card-meta {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .tree-canvas {
     padding-left: 15px;
@@ -1652,10 +1654,10 @@ footer i {
     gap: 7px;
   }
   .brand > span:last-child {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .brand small {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
   }
   .brand-icon {
     width: 33px;
@@ -1672,7 +1674,7 @@ footer i {
     padding: 0 20px;
   }
   .topbar-location {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
     gap: 7px;
   }
   .search-wrap {
@@ -1682,7 +1684,7 @@ footer i {
     min-height: 270px;
   }
   .hero h1 {
-    font-size: 36px;
+    font-size: calc(36px + var(--main-font-increase, 0px));
   }
   .hero-copy {
     width: 70%;
@@ -1690,38 +1692,38 @@ footer i {
   }
   .hero p {
     max-width: 300px;
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
   }
   .hero-kicker {
     letter-spacing: 1.3px;
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
   }
   .hero-bottom {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
   }
   .hero-side-text {
     display: none;
   }
   .section-heading h2 {
-    font-size: 16px;
+    font-size: calc(16px + var(--main-font-increase, 0px));
   }
   .view-indicator {
     display: none;
   }
   .card-title h3 {
-    font-size: 11px;
+    font-size: calc(11px + var(--main-font-increase, 0px));
   }
   .card-content {
     padding: 12px 10px;
   }
   .card-content p {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
     white-space: normal;
     min-height: 24px;
     line-height: 1.6;
   }
   .card-meta {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
     flex-wrap: wrap;
     margin-top: 12px;
     gap: 6px;
@@ -1730,7 +1732,7 @@ footer i {
     padding: 15px 13px;
   }
   .panel-heading > span {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
   }
   .tree-branch {
     flex-direction: column;
@@ -1773,23 +1775,23 @@ footer i {
     padding-top: 55px;
   }
   .bottom-note {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .journey-intro p {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .start-card {
     margin: 0 12px;
     padding: 13px 10px;
   }
   .start-card h3 {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
   }
   .domain-hero h1 {
-    font-size: 29px;
+    font-size: calc(29px + var(--main-font-increase, 0px));
   }
   .domain-hero h1 > span {
-    font-size: 17px;
+    font-size: calc(17px + var(--main-font-increase, 0px));
   }
 }
 @media (max-width: 760px) {
@@ -1806,10 +1808,10 @@ footer i {
     transform: translateX(0);
   }
   .brand > span:last-child {
-    font-size: 14px;
+    font-size: calc(14px + var(--main-font-increase, 0px));
   }
   .brand small {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .main-shell {
     margin-left: 0;
@@ -1845,7 +1847,7 @@ footer i {
     width: 66%;
   }
   .hero h1 {
-    font-size: 38px;
+    font-size: calc(38px + var(--main-font-increase, 0px));
   }
   .workspace-grid {
     grid-template-columns: minmax(0, 1fr) 235px;
@@ -1857,7 +1859,7 @@ footer i {
     gap: 12px;
   }
   .card-number {
-    font-size: 6px;
+    font-size: calc(6px + var(--main-font-increase, 0px));
   }
   .star-one {
     right: 35%;
@@ -1867,7 +1869,7 @@ footer i {
     width: 155px;
   }
   .card-title h3 {
-    font-size: 11px;
+    font-size: calc(11px + var(--main-font-increase, 0px));
   }
   .sidebar-bottom {
     padding-top: 15px;
@@ -1884,7 +1886,7 @@ footer i {
     padding: 0 16px;
   }
   .topbar-location {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
     gap: 8px;
   }
   .search-wrap {
@@ -1892,7 +1894,7 @@ footer i {
     padding: 8px;
   }
   .search-wrap input {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
   }
   .search-wrap kbd {
     display: none;
@@ -1906,23 +1908,23 @@ footer i {
     width: 75%;
   }
   .hero h1 {
-    font-size: 36px;
+    font-size: calc(36px + var(--main-font-increase, 0px));
   }
   .hero-kicker {
-    font-size: 6px;
+    font-size: calc(6px + var(--main-font-increase, 0px));
     letter-spacing: 1.2px;
     max-width: 200px;
     line-height: 1.6;
   }
   .hero p {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
     max-width: 220px;
   }
   .hero-copy {
     background: linear-gradient(90deg, #f0effbf5 50%, transparent);
   }
   .hero-bottom {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
     max-width: 215px;
     gap: 7px;
   }
@@ -1939,7 +1941,7 @@ footer i {
   .star-one {
     right: 24%;
     top: 25px;
-    font-size: 20px;
+    font-size: calc(20px + var(--main-font-increase, 0px));
   }
   .workspace-grid {
     grid-template-columns: 1fr;
@@ -1950,10 +1952,10 @@ footer i {
     margin-bottom: 18px;
   }
   .section-heading h2 {
-    font-size: 19px;
+    font-size: calc(19px + var(--main-font-increase, 0px));
   }
   .eyebrow {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
   }
   .view-indicator {
     display: flex;
@@ -1968,18 +1970,18 @@ footer i {
     padding: 14px 12px;
   }
   .card-title h3 {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .card-content p {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
     min-height: 15px;
   }
   .card-meta {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
     margin-top: 17px;
   }
   .card-number {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
   }
   .journey-panel {
     margin-bottom: 24px;
@@ -1988,40 +1990,40 @@ footer i {
     padding-top: 25px;
   }
   .journey-intro p {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
   }
   .journey-stats {
     margin-left: 24px;
     margin-right: 24px;
   }
   .panel-heading > span {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .start-card {
     margin: 0 20px;
     padding: 16px;
   }
   .start-card h3 {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .start-card p {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
   }
   .start-card button {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
   }
   .recent-section {
     padding-left: 22px;
     padding-right: 22px;
   }
   .recent-section > p {
-    font-size: 10px;
+    font-size: calc(10px + var(--main-font-increase, 0px));
   }
   .quote {
     padding-top: 17px;
   }
   .quote p {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .detail-panel {
     position: static;
@@ -2031,14 +2033,14 @@ footer i {
     padding: 22px;
   }
   .description {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .key-points li {
-    font-size: 11px;
+    font-size: calc(11px + var(--main-font-increase, 0px));
   }
   .questions summary,
   .questions details p {
-    font-size: 11px;
+    font-size: calc(11px + var(--main-font-increase, 0px));
   }
   .tree-canvas {
     min-height: 380px;
@@ -2062,10 +2064,10 @@ footer i {
     left: -25px;
   }
   .domain-hero h1 {
-    font-size: 30px;
+    font-size: calc(30px + var(--main-font-increase, 0px));
   }
   .domain-hero h1 > span {
-    font-size: 18px;
+    font-size: calc(18px + var(--main-font-increase, 0px));
     line-height: 1.4;
     max-width: 210px;
   }
@@ -2076,12 +2078,12 @@ footer i {
     flex-wrap: wrap;
   }
   footer {
-    font-size: 7px;
+    font-size: calc(7px + var(--main-font-increase, 0px));
     padding-top: 17px;
     margin-top: 0;
   }
   .bottom-note {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
     margin: 21px 0;
   }
   .search-results {
@@ -2103,11 +2105,11 @@ footer i {
     padding: 16px 15px 14px;
   }
   .card-title h3 {
-    font-size: 14px;
+    font-size: calc(14px + var(--main-font-increase, 0px));
   }
   .card-content p,
   .card-meta {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2201,11 +2203,11 @@ footer,
 .hero-kicker,
 .sidebar-label,
 .panel-heading > span {
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
 }
 .hero p,
 .description {
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
 }
 .hero-bottom,
 .view-indicator,
@@ -2229,28 +2231,28 @@ footer,
 .search-results small,
 .progress-summary p,
 .empty-progress p {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
 }
 .card-title h3 {
-  font-size: 14px;
+  font-size: calc(14px + var(--main-font-increase, 0px));
 }
 .card-meta {
   flex-wrap: wrap;
   row-gap: 6px;
 }
 .tree-node > span:nth-child(2) {
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
 }
 .key-points li,
 .questions summary,
 .questions details p,
 .learn-button {
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
 }
 .detail-content h3,
 .start-card h3,
 .recent-section h3 {
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
 }
 .tree-node {
   width: 145px;
@@ -2260,16 +2262,16 @@ footer,
 }
 @media (max-width: 590px) {
   .card-title h3 {
-    font-size: 12px;
+    font-size: calc(12px + var(--main-font-increase, 0px));
   }
   .hero p {
-    font-size: 11px;
+    font-size: calc(11px + var(--main-font-increase, 0px));
   }
   .hero-bottom {
-    font-size: 9px;
+    font-size: calc(9px + var(--main-font-increase, 0px));
   }
   .hero-kicker {
-    font-size: 8px;
+    font-size: calc(8px + var(--main-font-increase, 0px));
   }
   .tree-node {
     width: 180px;
@@ -2330,7 +2332,7 @@ html {
   color: #d7c7f2;
 }
 .cinema-copy h1 {
-  font-size: clamp(44px, 5vw, 72px);
+  font-size: calc(clamp(44px, 5vw, 72px) + var(--main-font-increase, 0px));
   line-height: 1.04;
   letter-spacing: -3px;
   font-weight: 650;
@@ -2344,12 +2346,12 @@ html {
 .cinema-copy p {
   margin-top: 22px;
   color: #f2eff8cf;
-  font-size: 12px;
+  font-size: calc(12px + var(--main-font-increase, 0px));
   line-height: 1.9;
 }
 .cinema-copy .hero-bottom {
   color: #efeaf8c7;
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   margin-top: 28px;
 }
 .sound-toggle {
@@ -2365,7 +2367,7 @@ html {
   background: #0a0b12a8;
   border: 1px solid #ffffff4a;
   border-radius: 999px;
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   backdrop-filter: blur(12px);
   transition: background 0.2s, transform 0.2s;
 }
@@ -2384,7 +2386,7 @@ html {
   align-items: center;
   gap: 6px;
   color: #ffffffc4;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   letter-spacing: 1.6px;
 }
 .scroll-cue svg {
@@ -2482,12 +2484,12 @@ html {
 }
 .behavior-number {
   color: var(--accent);
-  font-size: 9px;
+  font-size: calc(9px + var(--main-font-increase, 0px));
   font-weight: 700;
   line-height: 1.5;
 }
 .behavior-question-text {
-  font-size: 10px;
+  font-size: calc(10px + var(--main-font-increase, 0px));
   line-height: 1.5;
   font-weight: 600;
 }
@@ -2501,7 +2503,7 @@ html {
   max-width: 100%;
   margin-top: 34px;
   color: #a39cb1;
-  font-size: 8px;
+  font-size: calc(8px + var(--main-font-increase, 0px));
   pointer-events: none;
 }
 .workspace-grid.behavior-workspace {
@@ -2519,7 +2521,7 @@ html {
 }
 .behavior-note-answers p {
   color: #51495f;
-  font-size: 14px;
+  font-size: calc(14px + var(--main-font-increase, 0px));
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
@@ -2670,11 +2672,11 @@ html {
     padding: 35px 24px 75px;
   }
   .cinema-copy h1 {
-    font-size: 43px;
+    font-size: calc(43px + var(--main-font-increase, 0px));
     letter-spacing: -2px;
   }
   .cinema-copy p {
-    font-size: 11px;
+    font-size: calc(11px + var(--main-font-increase, 0px));
   }
   .sound-toggle {
     right: 16px;
