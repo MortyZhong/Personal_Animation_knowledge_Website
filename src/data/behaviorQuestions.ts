@@ -49,6 +49,11 @@ export const behaviorQuestions: KnowledgeNode = {
       "I'll use AI to organize my notes, brainstorm ideas, or draft an outline. And if it's a coding task, I might ask AI to explain unfamiliar code or suggest where an error might be. But then I carefully review everything, test it myself, check it against reliable sources, and then refine it.",
       "The result is that I get to work more efficiently, explore more ideas, but I still own the final decision and quality. In all, AI is a collaboration tool for me, and that's it.",
     ]),
+    question("frontend familiarity", "How familiar are you with frontend development?", [
+      "Over these two years I spent most of time on backend development and distributed system, as well as some systems that support academic researches, so I would say I'm still building my frontend skills.",
+      "But I do have some hands-on experience with React and TypeScript through a personal project where I built an interactive knowledge map. Through the project, I've started learning about components of DOM, state management, and how user interactions update the interface. I aslo use AI tools to support my development, and I will always make an effort to understand why the code looks like in that way.",
+      "Besides, I've worked with many programming languages from many domains, such as foundation programing C/C++, modern language python/Java, Matlab that used for matirx computing and signal processing, declaritive language like Prolog/Haskell, SQL language. This experience has helped me become comfortable picking up new languages and adapting to different technologies."
+      "So although frontend development is relatively new to me, I'm confident in my ability to learn and get up to speed quickly, and to contribute to real work in your team."]),
     question("recruiter-questions", "Five questions for asking recruiter at the end of interview.", [
       "(1)How large is the team, and how are responsibilities divided among team members? How does the team usually collaborate?",
       "(2)What are the key priorities or success metrics for the team? For example, is the main focus on delivering products on time, maintaining high quality, or staying closely engaged with customers to improve retention?",
