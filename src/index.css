@@ -2254,8 +2254,16 @@ footer,
 .recent-section h3 {
   font-size: calc(12px + var(--main-font-increase, 0px));
 }
-.tree-node {
-  width: 145px;
+.knowledge-tree .tree-node {
+  width: 230px;
+  min-height: 72px;
+  padding: 14px 13px;
+}
+.knowledge-tree .tree-node > span:nth-child(2) {
+  min-width: 0;
+}
+.knowledge-tree .tree-node small {
+  white-space: nowrap;
 }
 .tree-node .node-icon {
   padding: 4px;
@@ -2273,8 +2281,8 @@ footer,
   .hero-kicker {
     font-size: calc(8px + var(--main-font-increase, 0px));
   }
-  .tree-node {
-    width: 180px;
+  .knowledge-tree .tree-node {
+    width: 220px;
   }
   .hero-copy {
     width: 80%;
