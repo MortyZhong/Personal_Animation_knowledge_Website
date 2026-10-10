@@ -24,9 +24,10 @@ export function DetailPanel({
   onToggle,
   onClose,
 }: Props) {
+  const behaviorQuestion = node.id.startsWith("behavior-") && Boolean(node.children);
   return (
     <motion.aside
-      className="detail-panel"
+      className={`detail-panel ${behaviorQuestion ? "behavior-detail" : ""}`}
       key={node.id}
       initial={{ opacity: 0, x: 12 }}
       animate={{ opacity: 1, x: 0 }}
@@ -61,10 +62,18 @@ export function DetailPanel({
       </div>
       <div className="detail-content">
         <span className="eyebrow accent">
-          {node.children ? "EXPLORE THE FOUNDATIONS" : "ONE MORE CONNECTION"}
+          {behaviorQuestion ? "ANSWER" : node.children ? "EXPLORE THE FOUNDATIONS" : "ONE MORE CONNECTION"}
         </span>
         <h2>{node.title}</h2>
-        <p className="description">{node.description}</p>
+        {behaviorQuestion ? (
+          <section className="behavior-note-answers" aria-label="Answer">
+            {node.children?.map((answer) => (
+              <p key={answer.id}>{answer.description}</p>
+            ))}
+          </section>
+        ) : (
+          <p className="description">{node.description}</p>
+        )}
         {node.keyPoints && (
           <section className="key-points">
             <h3>

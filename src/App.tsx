@@ -427,7 +427,7 @@ export default function App() {
               <span className="hero-side-text">LEARN · CONNECT · GROW</span>
             </section>
           )}
-          <div className="workspace-grid" id="learning-content">
+          <div className={`workspace-grid ${domain?.id === "behavior" ? "behavior-workspace" : ""}`} id="learning-content">
             <section
               className="map-area"
               aria-label={domain ? "Knowledge map" : "Learning domains"}
@@ -491,9 +491,7 @@ export default function App() {
                     <BehaviorBoard
                       questions={domain.children ?? []}
                       selected={selectedId}
-                      expanded={expanded}
-                      learned={progress.learned}
-                      onSelect={(id) => navigate(id, true)}
+                      onSelect={navigate}
                     />
                   ) : <div className="tree-canvas">
                     <div className="canvas-label">
