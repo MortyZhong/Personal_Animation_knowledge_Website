@@ -16,16 +16,27 @@ even a devil may cry👿😭💥
 .github/workflows/deploy.yml   # GitHub Pages CI/CD
 public/assets/                 # Images and videos
 src/
-  components/                  # UI components
+  components/
+    TopicCard.tsx              # Domain cards on the overview page and their progress
+    KnowledgeNode.tsx          # Recursive nodes in the standard knowledge map
+    BehaviorBoard.tsx          # Three-row question board with horizontal dragging
+    DetailPanel.tsx            # Right-side Field Notes and question answers
+    Icon.tsx                   # Shared icon names mapped to Lucide icons
   config/                      # Themes and backgrounds
-  data/                        # Knowledge map content
+  data/
+    knowledge.ts               # Domain tree and the combined knowledge export
+    detailBranches.ts          # Additional branches for existing topics
+    behaviorQuestions.ts       # Behavior Questions and their answer segments
   types/                       # TypeScript types
   utils/                       # Helper functions
-  App.tsx                      # Main app
+  App.tsx                      # App state, navigation, search, progress, and page layout
+  index.css                    # Site styles, layouts, typography, and responsive rules
 index.html                     # HTML entry point
 vite.config.ts                 # Vite configuration
 package.json                   # Dependencies and scripts
 ```
+
+`App.tsx` selects which components to show and passes them the current data and click handlers. The files in `src/data/` provide the knowledge content; components render it, while `index.css` controls how it looks across screen sizes.
 
 ## 💻 Run Locally
 
