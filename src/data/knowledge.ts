@@ -1,5 +1,6 @@
 import type { KnowledgeNode } from "../types/knowledge";
 import { detailBranches } from "./detailBranches";
+import { behaviorQuestions } from "./behaviorQuestions";
 
 const overviewKnowledge: KnowledgeNode[] = [
   {
@@ -845,4 +846,4 @@ function expand(node: KnowledgeNode): KnowledgeNode {
     : node;
 }
 
-export const knowledge: KnowledgeNode[] = overviewKnowledge.map(expand);
+export const knowledge: KnowledgeNode[] = [...overviewKnowledge.map(expand), behaviorQuestions];

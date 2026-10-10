@@ -99,7 +99,7 @@ export function DetailPanel({
             </pre>
           </section>
         )}
-        {!node.keyPoints && (
+        {!node.keyPoints && !node.id.startsWith("behavior-") && (
           <div className="note-callout">
             <Sparkles size={17} />
             <p>

@@ -33,6 +33,7 @@ import { Icon } from "./components/Icon";
 import { TopicCard } from "./components/TopicCard";
 import { KnowledgeNode } from "./components/KnowledgeNode";
 import { DetailPanel } from "./components/DetailPanel";
+import { BehaviorBoard } from "./components/BehaviorBoard";
 
 const allNodes = flatten(knowledge);
 const topicCount = allNodes.length - knowledge.length;
@@ -486,7 +487,15 @@ export default function App() {
                       </span>
                     ))}
                   </nav>
-                  <div className="tree-canvas">
+                  {domain.id === "behavior" ? (
+                    <BehaviorBoard
+                      questions={domain.children ?? []}
+                      selected={selectedId}
+                      expanded={expanded}
+                      learned={progress.learned}
+                      onSelect={(id) => navigate(id, true)}
+                    />
+                  ) : <div className="tree-canvas">
                     <div className="canvas-label">
                       <span /> EXPLORE THE CONNECTIONS
                     </div>
@@ -507,7 +516,7 @@ export default function App() {
                         Click a node to explore <ArrowUpRight size={12} />
                       </span>
                     </div>
-                  </div>
+                  </div>}
                   <div className="map-hint">
                     <Sparkles size={16} />
                     <span>

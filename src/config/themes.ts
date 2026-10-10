@@ -10,6 +10,12 @@ export interface ThemeConfig {
 }
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 export const themes: Record<string, ThemeConfig> = {
+  behavior: {
+    name: "Behavior Questions",
+    accent: "#705a98",
+    wash: "#f2ecfa",
+    label: "Practice one answer at a time.",
+  },
   aws: {
     name: "Bocchi the Rock!",
     accent: "#b74770",

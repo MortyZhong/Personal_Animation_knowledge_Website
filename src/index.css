@@ -2449,6 +2449,96 @@ html {
 .domain-hero .hero-bottom {
   color: color-mix(in srgb, var(--accent) 62%, #4a4653);
 }
+.behavior-board {
+  min-height: 540px;
+  max-height: 72vh;
+  padding: 64px 34px 55px;
+  cursor: grab;
+  overscroll-behavior-x: contain;
+}
+.behavior-board:active { cursor: grabbing; }
+.behavior-board-track {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  min-width: 100%;
+  gap: 42px;
+  pointer-events: none;
+}
+.behavior-column {
+  width: 245px;
+  flex: none;
+  pointer-events: auto;
+}
+.behavior-question.tree-node {
+  width: 100%;
+  min-height: 110px;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 11px;
+  cursor: pointer;
+}
+.behavior-number {
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.behavior-question-text {
+  flex: 1;
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.behavior-chevron { flex: none; color: var(--accent); transition: transform .2s; }
+.behavior-chevron.open { transform: rotate(180deg); }
+.behavior-answers {
+  display: grid;
+  gap: 14px;
+  margin-top: 25px;
+}
+.behavior-answer {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid #e2dfec;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 3px 8px #35304805;
+  text-align: left;
+  cursor: pointer;
+}
+.behavior-answer.selected {
+  border-color: var(--accent);
+  background: var(--theme-wash);
+}
+.behavior-answer-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--accent);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+.behavior-answer-text {
+  display: block;
+  font-size: 10px;
+  line-height: 1.65;
+  color: #625d70;
+  overflow-wrap: anywhere;
+}
+.behavior-board-hint {
+  position: sticky;
+  left: 0;
+  width: max-content;
+  max-width: 100%;
+  margin-top: 34px;
+  color: #a39cb1;
+  font-size: 8px;
+  pointer-events: none;
+}
 .topic-card {
   perspective: none;
   --pointer-x: 50%;
