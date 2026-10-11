@@ -20,6 +20,12 @@ export const behaviorQuestions: KnowledgeNode = {
   icon: "book",
   description: "Practice answers to teamwork and workplace questions, plus prompts for interviews and everyday conversations.",
   children: [
+    question("self-introduction", "Tell me about yourself", [
+      "Thanks, xxx. My name is Morty. I'm currently study my second year mastor of IT at the university of Melbourne, specializing in distributed computing. Throughout my studies, I have developed a good understanding of databases, how full-stack application works, how frontend and backend systems communicate. and how applications are deployed in the cloud.",
+      "I've also worked on several team projects, including building and deploying a cloud-base system that connect frontend, backend and database. I've also been developing my own interactive personal knowledge map website with the help of AI, which give me an impressive experience.",
+      "I've worked with many programming languages. So I'm comfortable learning new technologies and platform and adapting to different environments. While I'm still developing my skills with React and Golang, I'm confident in my ability to learn quickly and get up to speed.",
+      "I'm particularly interested in applying AI to solve real business problems. So I'm excited to learn more about what your company is building and where I could contribute more effectively as an intern."
+    ]),
     question("teamwork-story", "What happen during your teamwork?", [
       "I remember that there was a project about collecting data and analyzing it based on cloud technology deployment and coordination between frontend and backend system. At the beginning of that project, I wasn’t very familiar with some of the technologies we were using, like cloud platforms, Fission for serverless function and Redis used for data buffering. And my teammates are stuck in that as well.",
       "So I spent about six hours over two days completing self-paced learning modules like there are some available lessons with cartoon character provided on AWS that help you get up to speed. After that, I was able to complete my assigned tasks successfully, and I received positive feedback from my teammates cause I was able to help them. I think this experience shows that I can learn independently and take initiative when I’m faced with something unfamiliar.",
