@@ -57,6 +57,18 @@ export const behaviorQuestions: KnowledgeNode = {
       "I would also ask them to point me to relevant documentation and introduce me to another team member who could support me when necessary. After that, I would keep my work documented so the new mentor or supervisor could quickly understand my progress.",
       "This would help me maintain continuity instead of stopping work just because one person had left. It would also make the transition easier for both me and the team.",
     ]),
+    question("failed-subject", "You have failed a subject, what happen to it?", [
+      "Yes, I have failed an exam before. While I felt embarrassed and disappointed, I also made a conscious effort to reflect on the experience and take away valuable lessons that I could apply to my future work and life. Looking back, I realised that I hadn't planned my study schedule properly and relied too much on last-minute preparation. Since then, I've learned the importance of planning ahead, breaking larger tasks into manageable steps, and consistently documenting and tracking my progress rather than leaving everything until the last minute. I believe this lesson applies not only to studying but also to professional work, especially in software development, where planning, documentation, and regular progress reviews are essential. Although it was a setback, it helped me develop a more structured and disciplined approach to learning and working",
+    ]),
+    question("balance-work-study", "How do you balance work and study？", [
+      "irst of all, I believe the best way to manage multiple responsibilities is to prevent everything from piling up in the first place. I prefer to be proactive rather than reactive。",
+      "I always try to plan ahead and identify which tasks might require more time or involve more uncertainty.",
+      "For example, at university, I often preview lecture materials in advance, sometimes even several weeks ahead if my schedule allows. This helps me understand the lectures more efficiently and reduces the amount of revision I need afterwards.",
+      "As a result, I can free up more time for unpredictable tasks, such as group projects, where unexpected technical challenges or coordination issues may arise.",
+      "I also believe every good plan should include buffer time and a backup plan. I usually leave some extra time for unexpected delays. If things don't go as expected, I can adjust my schedule, move less urgent tasks, or take an alternative approach without affecting my most important commitments.",
+      "And of course, if several tasks still come up at the same time, I prioritise them based on their urgency, importance, and how much other people depend on my work.",
+      "Ultimately, I believe effective time management is not just about handling pressure, but about anticipating challenges, preparing for uncertainty, and knowing what matters most.",
+    ]),
     question("ai-tools", "How do you use AI tools?", [
       "In my daily work, I use AI as a powerful productivity tool, but not a replacement for my own judgment. For example, when I have a new project with a lot of technical details, my goal is to understand it quickly and produce a solid first version.",
       "I'll use AI to organize my notes, brainstorm ideas, or draft an outline. And if it's a coding task, I might ask AI to explain unfamiliar code or suggest where an error might be. But then I carefully review everything, test it myself, check it against reliable sources, and then refine it.",
@@ -76,6 +88,7 @@ export const behaviorQuestions: KnowledgeNode = {
       "Besides, I've worked with many programming languages from many domains, such as foundation programing C/C++, modern language python/Java, Matlab that used for matirx computing and signal processing, declaritive language like Prolog/Haskell, SQL language. This experience has helped me become comfortable picking up new languages and adapting to different technologies.",
       "So although frontend development is relatively new to me, I'm confident in my ability to learn and get up to speed quickly, and to contribute to real work in your team."]),
     question("recruiter-questions", "Five questions for asking recruiter at the end of interview.", [
+      "(I have prepared a few questions from different perspective, cause I see every interview as a valuable opportunity to have a meaningful conversation and learn from each others)",
       "(1)How large is the team, and how are responsibilities divided among team members? How does the team usually collaborate?",
       "(2)What are the key priorities or success metrics for the team? For example, is the main focus on delivering products on time, maintaining high quality, or staying closely engaged with customers to improve retention?",
       "(3)If we look at the most successful people on your team, what are the most important common traits or habits among them that make them so exceptional, compared to someone who just does what is required of them. (Resilient or flexible)",
