@@ -283,6 +283,8 @@ button:disabled {
   transition: background 0.35s ease;
 }
 .topbar {
+  position: relative;
+  z-index: 20;
   height: 76px;
   border-bottom: 1px solid #eaecf3;
   display: flex;
