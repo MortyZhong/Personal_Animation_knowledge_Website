@@ -34,6 +34,7 @@ import { TopicCard } from "./components/TopicCard";
 import { KnowledgeNode } from "./components/KnowledgeNode";
 import { DetailPanel } from "./components/DetailPanel";
 import { BehaviorBoard } from "./components/BehaviorBoard";
+import { AgentGraph } from "./components/AgentGraph";
 
 const allNodes = flatten(knowledge);
 const topicCount = allNodes.length - knowledge.length;
@@ -427,7 +428,7 @@ export default function App() {
               <span className="hero-side-text">LEARN · CONNECT · GROW</span>
             </section>
           )}
-          <div className={`workspace-grid ${domain?.id === "behavior" ? "behavior-workspace" : ""}`} id="learning-content">
+          <div className={`workspace-grid ${domain?.id === "behavior" ? "behavior-workspace" : ""} ${domain?.id === "agents" ? "agents-workspace" : ""}`} id="learning-content">
             <section
               className="map-area"
               aria-label={domain ? "Knowledge map" : "Learning domains"}
@@ -443,7 +444,7 @@ export default function App() {
                   </span>
                   <h2>
                     {domain
-                      ? "Your knowledge map"
+                      ? domain.id === "agents" ? "AI Agents knowledge graph" : "Your knowledge map"
                       : view === "progress"
                         ? "My learning progress"
                         : "Learning domains"}
@@ -487,7 +488,13 @@ export default function App() {
                       </span>
                     ))}
                   </nav>
-                  {domain.id === "behavior" ? (
+                  {domain.id === "agents" ? (
+                    <AgentGraph
+                      chapters={domain.children ?? []}
+                      selected={selectedId}
+                      onSelect={navigate}
+                    />
+                  ) : domain.id === "behavior" ? (
                     <BehaviorBoard
                       questions={domain.children ?? []}
                       selected={selectedId}
@@ -515,7 +522,7 @@ export default function App() {
                       </span>
                     </div>
                   </div>}
-                  <div className="map-hint">
+                  {domain.id !== "agents" && <div className="map-hint">
                     <Sparkles size={16} />
                     <span>
                       Every connection makes the bigger picture a little
@@ -529,7 +536,7 @@ export default function App() {
                         Open notes <BookOpen size={14} />
                       </button>
                     )}
-                  </div>
+                  </div>}
                 </>
               ) : view === "explore" ? (
                 <div className="topic-grid">
@@ -599,12 +606,12 @@ export default function App() {
                   )}
                 </div>
               )}
-              <div className="bottom-note">
+              {domain?.id !== "agents" && <div className="bottom-note">
                 <span>✧</span> Not everything is connected yet. That’s the fun
                 of learning.
-              </div>
+              </div>}
             </section>
-            {selected && panelOpen ? (
+            {domain?.id === "agents" ? null : selected && panelOpen ? (
               <DetailPanel
                 node={selected}
                 theme={theme}

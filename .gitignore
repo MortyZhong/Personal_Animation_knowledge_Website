@@ -10,3 +10,7 @@ test-results/
 *.tsbuildinfo
 public/assets/scenes/bocchi-character.png
 public/assets/scenes/emilia-character.webp
+/knowledge/ai-agents-graph-review.md
+/knowledge/build_ai_agents_graph.py
+/knowledge/graphify-out/
+/knowledge/__pycache__/

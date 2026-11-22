@@ -846,4 +846,55 @@ function expand(node: KnowledgeNode): KnowledgeNode {
     : node;
 }
 
-export const knowledge: KnowledgeNode[] = [...overviewKnowledge.map(expand), behaviorQuestions];
+const aiAgents: KnowledgeNode = {
+  id: "agents",
+  title: "AI Agents",
+  subtitle: "Explore the connections",
+  icon: "network",
+  description:
+    "Follow my questions about MCP, AWS agent tools, plugins, and skills through an interactive knowledge graph.",
+  children: [
+    {
+      id: "agents-chapter-0",
+      title: "MCP foundations",
+      description:
+        "Why MCP exists, what it standardizes, and how it compares with direct API integration.",
+    },
+    {
+      id: "agents-chapter-1",
+      title: "AWS integrations",
+      description:
+        "AWS operations, the older API server, the managed service, PostgreSQL paths, and authentication.",
+    },
+    {
+      id: "agents-chapter-2",
+      title: "Host and server roles",
+      description:
+        "Where the agent, host, client, server, and AWS Toolkit each fit.",
+    },
+    {
+      id: "agents-chapter-3",
+      title: "Agent Toolkit",
+      description:
+        "The Toolkit product, remote service, local packages, skills, and rules.",
+    },
+    {
+      id: "agents-chapter-4",
+      title: "Plugin packaging",
+      description:
+        "Marketplaces, manifests, loader conventions, and portable plugin metadata.",
+    },
+    {
+      id: "agents-chapter-5",
+      title: "Skills and tool flow",
+      description:
+        "Skill selection, context use, JSON messages, and the lifecycle of a tool call.",
+    },
+  ],
+};
+
+export const knowledge: KnowledgeNode[] = [
+  ...overviewKnowledge.map(expand),
+  aiAgents,
+  behaviorQuestions,
+];

@@ -10,6 +10,12 @@ export interface ThemeConfig {
 }
 const asset = (path: string) => `${import.meta.env.BASE_URL}assets/${path}`;
 export const themes: Record<string, ThemeConfig> = {
+  agents: {
+    name: "AI Agents",
+    accent: "#277c8b",
+    wash: "#e9f7f6",
+    label: "53 questions, one connected learning path.",
+  },
   behavior: {
     name: "Behavior Questions",
     accent: "#705a98",
